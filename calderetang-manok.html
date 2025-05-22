@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chicken Adobo Recipe</title>
+  <link rel="stylesheet" href="calderetang-manok.css" />
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <nav>
+    <ul>
+      <li style="margin-right: auto;">
+        <a href="index.html">
+          <img src="logo.png" alt="Logo" style="height: 40px; vertical-align: middle;" />
+        </a>
+      </li>
+        <li><a href="landing-page.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="share-recipe.html">Share Recipe</a></li>
+        <li><a href="login.html">Logout </a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Chicken Adobo Recipe</h1>
+  </header>
+
+  <div class="container">
+    <!-- Meta Information -->
+    <div class="meta">
+      <span>Author: <strong>John Doe</strong></span>
+      <span>Date Published: <strong>December 2, 2024</strong></span>
+    </div>
+
+    <!-- Recipe Intro -->
+    <div class="recipe-intro">
+      <img src="adobo.jpg" alt="Chicken Adobo" />
+      <h2>Classic Filipino Chicken Adobo</h2>
+      <p>A savory and tangy dish that embodies the heart of Filipino cuisine. Perfect for family dinners and celebrations!</p>
+    </div>
+
+    <!-- Prep, Cook, and Total Time -->
+    <div class="prep-time">
+      <span>Prep Time: 15 minutes</span>
+    </div>
+    <div class="cook-time">
+      <span>Cook Time: 45 minutes</span>
+    </div>
+    <div class="total-time">
+      <span>Total Time: 1 hour</span>
+    </div>
+
+    <!-- Ingredients Section -->
+    <div class="ingredients">
+      <h2>Ingredients</h2>
+      <ul>
+        <li>1 kg chicken (cut into pieces)</li>
+        <li>1/2 cup soy sauce</li>
+        <li>1/2 cup vinegar</li>
+        <li>4 cloves garlic (minced)</li>
+        <li>1 onion (sliced)</li>
+        <li>1 teaspoon black peppercorns</li>
+        <li>2 bay leaves</li>
+        <li>1 tablespoon sugar (optional)</li>
+        <li>1/2 cup water</li>
+        <li>1 tablespoon oil for frying</li>
+      </ul>
+    </div>
+
+    <!-- Instructions Section -->
+    <div class="instructions">
+      <h2>Instructions</h2>
+      <ol>
+        <li>In a large bowl, combine chicken, soy sauce, vinegar, garlic, onion, peppercorns, and bay leaves. Marinate for at least 30 minutes.</li>
+        <li>Heat oil in a pot over medium heat. Add marinated chicken and cook until browned on all sides.</li>
+        <li>Add water and bring to a boil. Lower heat and simmer for 30 minutes, or until chicken is tender.</li>
+        <li>Optional: Add sugar to balance the tanginess, if desired.</li>
+        <li>Serve with steamed rice and enjoy!</li>
+      </ol>
+    </div>
+
+    <!-- Fun Facts Section -->
+    <div class="fun-facts">
+      <h3>Fun Facts About Adobo</h3>
+      <ul>
+        <li>Adobo is considered the unofficial national dish of the Philippines.</li>
+        <li>The dish can be made with chicken, pork, or even beef.</li>
+        <li>It is believed that the name "adobo" comes from the Spanish word "adobar," which means "to marinate."</li>
+      </ul>
+    </div>
+
+    <!-- Nutrition Information -->
+    <div class="nutrition">
+      <h3>Nutrition Information (Per Serving)</h3>
+      <p>Calories: 350 | Protein: 30g | Fat: 20g | Carbs: 10g</p>
+    </div>
+
+    <!-- Comment Section -->
+    <div class="comments">
+      <h3>Leave a Comment</h3>
+      <form id="commentForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="rating">Rating:</label>
+        <select id="rating" name="rating">
+          <option value="5">5 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="2">2 Stars</option>
+          <option value="1">1 Star</option>
+        </select>
+
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="4" required></textarea>
+
+        <button type="submit">Submit Comment</button>
+      </form>
+
+      <div id="commentList" style="margin-top: 20px;">
+        <h3>Comments</h3>
+        <!-- Dynamic comments will be appended here -->
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2024 All rights reserved. <a href="privacy-policy.html">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    // JavaScript for handling comments
+    document.getElementById('commentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get form values
+      const name = document.getElementById('name').value;
+      const rating = document.getElementById('rating').value;
+      const comment = document.getElementById('comment').value;
+
+      // Create a new comment element
+      const commentDiv = document.createElement('div');
+      commentDiv.style.border = "1px solid #ddd";
+      commentDiv.style.borderRadius = "8px";
+      commentDiv.style.padding = "10px";
+      commentDiv.style.marginTop = "10px";
+      commentDiv.style.backgroundColor = "#f9f9f9";
+
+      // Add comment details
+      commentDiv.innerHTML = `
+        <p><strong>${name}</strong> <span style="color: #d62828;">(${rating} Stars)</span></p>
+        <p>${comment}</p>
+      `;
+
+      // Append to comment list
+      document.getElementById('commentList').appendChild(commentDiv);
+
+      // Clear the form
+      document.getElementById('commentForm').reset();
+    });
+  </script>
+</body>
+</html>

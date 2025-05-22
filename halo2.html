@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halo-Halo Recipe</title>
+  <link rel="stylesheet" href="halo-halo.css" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li style="margin-right: auto;">
+        <a href="index.html">
+          <img src="logo.png" alt="Logo" style="height: 40px; vertical-align: middle;" />
+        </a>
+      </li>
+        <li><a href="landing-page.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="share-recipe.html">Share Recipe</a></li>
+        <li><a href="login.html">Logout </a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Halo-Halo Recipe</h1>
+  </header>
+
+  <div class="container">
+    <div class="meta">
+      <span>Author: <strong>John Doe</strong></span>
+      <span>Date Published: <strong>December 2, 2024</strong></span>
+    </div>
+
+    <div class="recipe-intro">
+      <img src="halo.png" alt="Halo-Halo" />
+      <h2>Classic Filipino Halo-Halo</h2>
+      <p>A refreshing and colorful dessert that is perfect for hot days, combining shaved ice with a variety of sweet ingredients!</p>
+    </div>
+
+    <div class="prep-time">
+      <span>Prep Time: 15 minutes</span>
+    </div>
+    <div class="cook-time">
+      <span>Cook Time: 0 minutes</span>
+    </div>
+    <div class="total-time">
+      <span>Total Time: 15 minutes</span>
+    </div>
+
+    <div class="ingredients">
+      <h2>Ingredients</h2>
+      <ul>
+        <li>Shaved ice</li>
+        <li>Sweetened red beans</li>
+        <li>Sweetened jackfruit</li>
+        <li>Sweetened banana (saba variety)</li>
+        <li>Leche flan (caramelized egg custard)</li>
+        <li>Ube (purple yam) ice cream</li>
+        <li>Coconut strips</li>
+        <li>Sweetened macapuno (coconut sport)</li>
+        <li>Evaporated milk</li>
+      </ul>
+    </div>
+
+    <div class="instructions">
+      <h2>Instructions</h2>
+      <ol>
+        <li>In a tall glass, layer the sweetened beans, jackfruit, banana, and coconut strips.</li>
+        <li>Top with shaved ice, making sure it reaches the top of the glass.</li>
+        <li>Add a few scoops of ube ice cream and leche flan on top of the shaved ice.</li>
+        <li>Drizzle with evaporated milk to taste.</li>
+        <li>Mix everything together and enjoy!</li>
+      </ol>
+    </div>
+
+    <div class="fun-facts">
+      <h3>Fun Facts About Halo-Halo</h3>
+      <ul>
+        <li>Halo-Halo is a Filipino dessert that means "mix-mix" in English, which reflects the way the ingredients are mixed together.</li>
+        <li>It is especially popular during the hot summer months in the Philippines.</li>
+        <li>The dessert is made with a variety of ingredients, and no two versions are exactly the same!</li>
+      </ul>
+    </div>
+
+    <div class="nutrition">
+      <h3>Nutrition Information (Per Serving)</h3>
+      <p>Calories: 250 | Protein: 3g | Fat: 10g | Carbs: 35g</p>
+    </div>
+
+    <div class="comments">
+      <h3>Leave a Comment</h3>
+      <form id="commentForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="rating">Rating:</label>
+        <select id="rating" name="rating">
+          <option value="5">5 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="2">2 Stars</option>
+          <option value="1">1 Star</option>
+        </select>
+
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="4" required></textarea>
+
+        <button type="submit">Submit Comment</button>
+      </form>
+
+      <div id="commentList" style="margin-top: 20px;">
+        <h3>Comments</h3>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2024 All rights reserved. <a href="privacy-policy.html">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('commentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const rating = document.getElementById('rating').value;
+      const comment = document.getElementById('comment').value;
+      const commentDiv = document.createElement('div');
+      commentDiv.style.border = "1px solid #ddd";
+      commentDiv.style.borderRadius = "8px";
+      commentDiv.style.padding = "10px";
+      commentDiv.style.marginTop = "10px";
+      commentDiv.style.backgroundColor = "#f9f9f9";
+      commentDiv.innerHTML = `
+        <p><strong>${name}</strong> <span style="color: #d62828;">(${rating} Stars)</span></p>
+        <p>${comment}</p>
+      `;
+      document.getElementById('commentList').appendChild(commentDiv);
+      document.getElementById('commentForm').reset();
+    });
+  </script>
+</body>
+</html>

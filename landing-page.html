@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sharing Recipes</title>
+  <link rel="stylesheet" href="landing-page.css">
+</head>
+<body>
+  <header class="hero">
+    <nav>
+      <ul>
+        <li><a href="landing-page.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="share-recipe.html">Share Recipe</a></li>
+        <li><a href="login.html">Logout </a></li>
+      </ul>
+    </nav>
+    <img src="logo.png" alt="Kusina Online Logo" class="logo">
+    <h1>Kusina Online</h1>
+    <p>Taste the Tradition, Share the Passion!</p>
+    <div class="search-container">
+      <input type="text" id="search-bar" class="search-bar" placeholder="Search for recipes...">
+      <button class="search-btn" onclick="searchRecipes()">Search</button>
+    </div>
+  </header>
+
+  <section id="popular-recipes">
+    <h2>Popular Search</h2>
+    <div class="popular-recipes-container" id="recipe-container">
+      <div class="popular-recipe" data-name="Chicken Adobo">
+        <a href="chicken-adobo.html" style="text-decoration: none; color: inherit;">
+          <img src="adobo.jpg" alt="Chicken Adobo">
+          <h3>Chicken Adobo</h3>
+          <p>A savory and tangy classic Filipino dish loved by everyone.</p>
+        </a>
+      </div>
+      <div class="popular-recipe" data-name="Lechon">
+        <a href="Lechon.html" style="text-decoration: none; color: inherit;">
+          <img src="lechon.png" alt="Lechon">
+          <h3>Lechon</h3>
+          <p>A crispy and juicy whole roasted pig, perfect for celebrations.</p>
+        </a>
+      </div>
+      <div class="popular-recipe" data-name="Halo-Halo">
+        <a href="halo2.html" style="text-decoration: none; color: inherit;">
+          <img src="halo.png" alt="Halo-Halo">
+          <h3>Halo-Halo</h3>
+          <p>A refreshing Filipino dessert with sweetened fruits and shaved ice.</p>
+        </a>
+      </div>
+    </div>
+    <div id="no-results-msg" class="no-results" style="display: none;">
+      No results found.
+    </div>
+  </section>
+
+  <section id="categories">
+    <h2>Recipe Categories</h2>
+    <div class="categories">
+        <a href="chicken-recipes.html" style="text-decoration: none; color: inherit;">
+            <div class="category">
+                <img src="chicken.png" alt="Chicken">
+                <p>Chicken</p>
+            </div>
+        </a>
+        <a href="pork-recipes.html" style="text-decoration: none; color: inherit;">
+            <div class="category">
+                <img src="pork.png" alt="Pork">
+                <p>Pork</p>
+            </div>
+        </a>
+        <a href="desserts recipes.html" style="text-decoration: none; color: inherit;">
+            <div class="category">
+                <img src="dessert.png" alt="Desserts">
+                <p>Desserts</p>
+            </div>
+        </a>
+        <a href="vegetable-recipe.html" style="text-decoration: none; color: inherit;">
+            <div class="category">
+                <img src="vegetable.png" alt="Vegetables">
+                <p>Vegetables</p>
+            </div>
+        </a>
+        <a href="beef-recipes.html" style="text-decoration: none; color: inherit;">
+            <div class="category">
+                <img src="beef.png" alt="Beef">
+                <p>Beef</p>
+            </div>
+        </a>
+        <a href="noodles-pasta.html" style="text-decoration: none; color: inherit;">
+            <div class="category">
+                <img src="noods.png" alt="Noodles/Pasta">
+                <p>Noodles/Pasta</p>
+            </div>
+        </a>
+        <a href="seafood-recipes.html" style="text-decoration: none; color: inherit;">
+            <div class="category">
+                <img src="fish.png" alt="Seafood">
+                <p>Seafood</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+  <footer>
+    <p>&copy; 2024 Kusina Online. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function searchRecipes() {
+      const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+      const recipes = document.querySelectorAll('.popular-recipe');
+      let resultsFound = false;
+
+      document.getElementById('no-results-msg').style.display = 'none';
+
+      recipes.forEach(recipe => {
+        const recipeName = recipe.getAttribute('data-name').toLowerCase();
+        if (recipeName.includes(searchTerm)) {
+          recipe.style.display = 'block';
+          resultsFound = true;
+        } else {
+          recipe.style.display = 'none'; 
+        }
+      });
+
+      if (!resultsFound) {
+        document.getElementById('no-results-msg').style.display = 'block';
+      } else {
+        document.getElementById('no-results-msg').style.display = 'none';
+      }
+
+      document.querySelector('#categories').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Share a Recipe</title>
+    <link rel="stylesheet" href="share-recipe.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Share Your Recipe</h1>
+    </header>
+
+    <div class="form-container">
+      <h2>Submit a New Recipe</h2>
+      <form id="recipe-form">
+        <div class="form-group">
+          <label for="recipe-title">Recipe Title</label>
+          <input
+            type="text"
+            id="recipe-title"
+            name="recipe-title"
+            placeholder="Enter the recipe title"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="recipe-description">Description</label>
+          <textarea
+            id="recipe-description"
+            name="recipe-description"
+            rows="5"
+            placeholder="Enter a short description"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="recipe-image">Upload Image</label>
+          <input
+            type="file"
+            id="recipe-image"
+            name="recipe-image"
+            accept="image/*"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <button type="button" id="post-recipe">Post Recipe</button>
+        </div>
+      </form>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Kusina Online. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("post-recipe")
+        .addEventListener("click", function () {
+          const title = document
+            .getElementById("recipe-title")
+            .value.toLowerCase();
+          const description =
+            document.getElementById("recipe-description").value;
+          const image = document.getElementById("recipe-image").files[0];
+
+          const categories = {
+            chicken: "chicken-adobo.html",
+            pork: "pork-barbecue.html",
+            dessert: "halo-halo.html",
+            vegetable: "vegetable.html",
+            beef: "beef.html",
+            noodles: "noods.html",
+            fish: "fish.html",
+          };
+
+          let matchedCategory = null;
+          for (const [key, value] of Object.entries(categories)) {
+            if (title.includes(key)) {
+              matchedCategory = value;
+              break;
+            }
+          }
+
+          if (!matchedCategory) {
+            alert(
+              "Category not found for the given recipe title. Please include a keyword matching a category."
+            );
+            return;
+          }
+
+          const recipeData = {
+            title,
+            description,
+            image: image ? image.name : "placeholder",
+          };
+
+          localStorage.setItem("postedRecipe", JSON.stringify(recipeData));
+
+          alert("Recipe posted successfully!");
+          window.location.href = matchedCategory;
+        });
+    </script>
+  </body>
+</html>

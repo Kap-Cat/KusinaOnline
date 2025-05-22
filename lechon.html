@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lechon Recipe</title>
+  <link rel="stylesheet" href="lechon.css" />
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <nav>
+    <ul>
+      <li style="margin-right: auto;">
+        <a href="index.html">
+          <img src="logo.png" alt="Logo" style="height: 40px; vertical-align: middle;">
+        </a>
+      </li>
+        <li><a href="landing-page.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="share-recipe.html">Share Recipe</a></li>
+        <li><a href="login.html">Logout </a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Lechon Recipe</h1>
+  </header>
+
+  <div class="container">
+    <div class="meta">
+      <span>Author: <strong>John Doe</strong></span>
+      <span>Date Published: <strong>December 2, 2024</strong></span>
+    </div>
+
+    <div class="recipe-intro">
+      <img src="lechon.png" alt="Lechon" />
+      <h2>Classic Filipino Lechon</h2>
+      <p>Enjoy the crispy, juicy, and flavorful goodness of Filipino lechon! Perfect for large celebrations and festive gatherings.</p>
+    </div>
+
+    <div class="prep-time"><span>Prep Time: 30 minutes</span></div>
+    <div class="cook-time"><span>Cook Time: 5 hours</span></div>
+    <div class="total-time"><span>Total Time: 5 hours 30 minutes</span></div>
+
+    <div class="ingredients">
+      <h2>Ingredients</h2>
+      <ul>
+        <li>1 whole pig (about 10-15 kg)</li>
+        <li>1/2 cup soy sauce</li>
+        <li>1/4 cup vinegar</li>
+        <li>1/4 cup calamansi or lemon juice</li>
+        <li>8 cloves garlic (minced)</li>
+        <li>2 tablespoons sugar</li>
+        <li>2 teaspoons ground black pepper</li>
+        <li>1 tablespoon salt</li>
+        <li>2-3 stalks lemongrass (tied into a knot)</li>
+        <li>1 large onion (quarter cut)</li>
+        <li>1 bunch green onions</li>
+        <li>2 tablespoons vegetable oil</li>
+      </ul>
+    </div>
+
+    <div class="instructions">
+      <h2>Instructions</h2>
+      <ol>
+        <li>Clean the pig and remove excess fat. Pat dry with paper towels.</li>
+        <li>In a bowl, combine soy sauce, vinegar, calamansi juice, garlic, sugar, black pepper, and salt to make the marinade.</li>
+        <li>Rub the marinade all over the pig, including the inside. Stuff the pig with lemongrass, onion, and green onions.</li>
+        <li>Allow the pig to marinate for at least 3-4 hours, preferably overnight.</li>
+        <li>Roast on a large spit over a charcoal grill. Turn regularly for even cooking.</li>
+        <li>Roast for 4-5 hours or until skin is golden brown and crispy.</li>
+        <li>Let it rest before carving and serving.</li>
+      </ol>
+    </div>
+
+    <div class="fun-facts">
+      <h3>Fun Facts About Lechon</h3>
+      <ul>
+        <li>Served during major celebrations like Christmas and birthdays.</li>
+        <li>Roasted whole on a spit until crispy.</li>
+        <li>Symbol of hospitality and abundance.</li>
+      </ul>
+    </div>
+
+    <div class="nutrition">
+      <h3>Nutrition Information (Per Serving)</h3>
+      <p>Calories: 450 | Protein: 35g | Fat: 30g | Carbs: 10g</p>
+    </div>
+
+    <div class="comments">
+      <h3>Leave a Comment</h3>
+      <form id="commentForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="rating">Rating:</label>
+        <select id="rating" name="rating">
+          <option value="5">5 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="2">2 Stars</option>
+          <option value="1">1 Star</option>
+        </select>
+
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="4" required></textarea>
+
+        <button type="submit">Submit Comment</button>
+      </form>
+
+      <div id="commentList" style="margin-top: 20px;">
+        <h3>Comments</h3>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2024 All rights reserved. <a href="privacy-policy.html">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('commentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const rating = document.getElementById('rating').value;
+      const comment = document.getElementById('comment').value;
+
+      const commentDiv = document.createElement('div');
+      commentDiv.style.border = "1px solid #ddd";
+      commentDiv.style.borderRadius = "8px";
+      commentDiv.style.padding = "10px";
+      commentDiv.style.marginTop = "10px";
+      commentDiv.style.backgroundColor = "#f9f9f9";
+
+      commentDiv.innerHTML = `
+        <p><strong>${name}</strong> <span style="color: #d62828;">(${rating} Stars)</span></p>
+        <p>${comment}</p>
+      `;
+
+      document.getElementById('commentList').appendChild(commentDiv);
+      document.getElementById('commentForm').reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url("backgroundlr.png") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  width: 800px;
+  max-width: 90%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.login-container .left {
+  background: url("welcomeback.jpg") no-repeat center center / cover;
+  width: 50%;
+  box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
+}
+
+.login-container .right {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.965);
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
+}
+
+.right h2 {
+  font-family: "Cooper Black", "Bubblegum Sans", sans-serif;
+  color: #d62828;
+  margin-bottom: 20px;
+}
+
+.right form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.right input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.right button {
+  background: #d62828;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.right button:hover {
+  background: #f94144;
+  transform: scale(1.05);
+}
+
+.right a {
+  color: #d62828;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.right a:hover {
+  text-decoration: underline;
+}
